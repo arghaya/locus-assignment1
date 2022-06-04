@@ -13,7 +13,7 @@ node {
         sh 'pwd'
     }
     stage('Build Deploy Code') {
-        if (env.BRANCH_NAME == production) {
+        if (env.BRANCH_NAME ==~ /(production)/) {
             sh 'echo "deploying production"'
         }
     }
