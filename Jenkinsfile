@@ -12,21 +12,12 @@ node {
     stage('Results') {
         sh 'pwd'
     }
+    stage('Build Deploy Code') {
+        if (env.BRANCH_NAME ==~ /(production)/) {
+            sh 'echo "deploying production"')
+        }
+    }
     stage('postbuild_clean_up') {
         cleanWs()
-    }
-    stage('Build Deploy Code') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                sh """
-                echo "Building Artifact"
-                """
-
-                sh """
-                echo "Deploying Code"
-                """
-            }
     }
 }
