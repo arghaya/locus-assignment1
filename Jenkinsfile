@@ -14,7 +14,7 @@ node {
     }
     stage('Build Deploy Code') {
         if (env.BRANCH_NAME == production {
-            sh 'echo "deploying production"')
+            sh 'echo "deploying production"'
         }
     }
     stage('postbuild_clean_up') {
